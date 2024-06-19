@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS items (
     `image` VARCHAR(200) DEFAULT NULL,
     `price` DECIMAL(8, 2) NOT NULL,
     `qty` INT NOT NULL,
-    `created_at` TIMESTAMP NULL DEFAULT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 )

@@ -1,16 +1,15 @@
 package com.veggy.backend.veggy_backend.helpers;
 
 public class GenericResponse<T> {
-    private String status;
+    private Integer status;
     private String message;
     private T data;
 
-    // Getter and Setter for status
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

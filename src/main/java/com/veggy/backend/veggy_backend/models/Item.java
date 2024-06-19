@@ -5,7 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Entity
 @Table(name = "items")
@@ -14,6 +19,10 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Date createdAt;
 
     private String title;
 
@@ -25,7 +34,7 @@ public class Item {
 
     private Integer qty;
 
-    private Date createdAt;
+    private final String IMAGE_PATH = "http://localhost:8080/images/items/";
 
     public Long getId() {
         return id;
@@ -52,7 +61,7 @@ public class Item {
     }
 
     public String getImage() {
-        return image;
+        return IMAGE_PATH + this.image;
     }
 
     public void setImage(String image) {
@@ -60,7 +69,7 @@ public class Item {
     }
 
     public Float getPrice() {
-        return price;
+        return 'N' + price;
     }
 
     public void setPrice(Float price) {
